@@ -9,7 +9,7 @@
 //   // Code de ma fonction
 // }
 // console.log(nomDeMaFonction(On remplace le paramètre par ce qu'on désire)) //
-
+const multiply = (a,b) => a * b;
 
 //----------------------------------------------------------------------------------------------//
 // EXERCICE 2
@@ -19,7 +19,7 @@
 // Pour rappel pour accéder à un élément d'un tableau on utilise la méthode [laplaceDuNombreDeL'élément] :
 // const monTableau = [1, 2, 3]
 // console.log(monTableau[0]) // 1
-
+const getFromArray = array => array[0]
 
 
 //----------------------------------------------------------------------------------------------//
@@ -31,7 +31,7 @@
 // const monTableau = [1, 2, 3]
 // monTableau.pop()
 // console.log(monTableau) // [1, 2]
-
+const removeLastFromArray = array => array.pop()
 
 
 //----------------------------------------------------------------------------------------------//
@@ -44,7 +44,7 @@
 // for (let i = 0; i < monTableau.length; i++) {
 //   console.log(monTableau[i]) // 1, 2, 3
 // }
-
+const getSomeFromArray = array => array.reduce((a,b) => a + b)
 
 
 //----------------------------------------------------------------------------------------------//
@@ -59,7 +59,7 @@
 // const monTableauInverse = monTableau.reverse()
 // console.log(monTableauInverse) // ["o", "l", "l", "e", "H"]
 //Maintenant que la string est inversée il faut la remettre en string avec la méthode join().
-
+const invertString = str => str.split("").reverse().join("")
 
 //----------------------------------------------------------------------------------------------//
 
@@ -69,7 +69,7 @@
 // Pour cette exercice on va utiliser la méthode Math.max() qui permet de retourner le plus grand nombre d'un tableau :
 // const monTableau = [1, 2, 3]
 // console.log(Math.max(...monTableau)) // 3
-
+const getHighestFromArray = array => Math.max(...array)
 
 
 //----------------------------------------------------------------------------------------------//
@@ -80,7 +80,7 @@
 // Pour cette exercice on va utiliser la méthode Math.min() qui permet de retourner le plus petit nombre d'un tableau :
 // const monTableau = [1, 2, 3]
 // console.log(Math.min(...monTableau)) // 1
-
+const getLowestFromArray = array => Math.min(...array)
 
 
 //----------------------------------------------------------------------------------------------//
@@ -96,8 +96,12 @@
 // const monTableauFiltre = monTableau.filter((element) => {
 //   return element !== "e" && element !== "o"
 // })
-
-
+const removeVowelsFromString = (str) => {
+  const vowels = ["a", "e", "i", "o", "u", "y"];
+  const array = str.split("");
+  const filter = array.filter(x => !vowels.includes(x));
+  return filter.join("")
+};
 
 //----------------------------------------------------------------------------------------------//
 
@@ -108,7 +112,7 @@
 // Pour cette exercice on va utiliser la méthode sort() qui permet de trier un tableau :
 // const monTableau = [1, 3, 2]
 // console.log(monTableau.sort()) // [1, 2, 3]
-
+const sortArray = array => array.sort((a,b) => a > b)
 
 
 //----------------------------------------------------------------------------------------------//
