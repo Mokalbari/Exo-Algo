@@ -225,7 +225,7 @@ const getTotalFromArray = arr => arr.reduce((a,b) => a + b
 // const monTableau2 = ["Test", "Salut"]
 // const monTableauConcat = monTableau1.concat(monTableau2)
 // console.log(monTableauConcat) // ["Hello", "World", "Test", "Salut"]
-const getTotalFromArray = arr => arr.reduce((a,b) => a + b)
+const getTotalFromArray = arr => arr.reduce((a,b) => (a + b)
 
 
 //----------------------------------------------------------------------------------------------//
@@ -259,13 +259,18 @@ const filterAndSort = arr => arr.filter(num => num % 3).sort((a,b) => a > b)
 // Exemple :
 // findShort("Prachett is the best author in the world ") // 2
 // findShort("The quick brown fox jumps over the lazy dog") // 3
-
+const filterAndReturnLength = arr => arr.map(str => str.length).reduce((a,b) => a < b ? a : b)
 
 
 // EXERCICE 21
 
-//Écrivez une fonction `anagram` qui prend deux chaînes et renvoie un booléen indiquant si les chaînes sont des anagrammes l'une de l'autre. Deux chaînes sont des anagrammes l'une de l'autre si elles contiennent les caractères, quel que soit l'ordre des caractères. Par exemple, "listen" et "silent" sont des anagrammes l'une de l'autre
-
+//Écrivez une fonction `anagram` qui prend deux chaînes et renvoie un booléen indiquant si les chaînes sont des anagrammes l'une de l'autre.
+//Deux chaînes sont des anagrammes l'une de l'autre si elles contiennent les caractères, quel que soit l'ordre des caractères.
+//Par exemple, "listen" et "silent" sont des anagrammes l'une de l'autre
+const isAnagram = (str1, str2) => {
+  const sortStr = str => str.toLowerCase().split("").sort((a, b) => a > b).join("");
+  return sortStr(str1) === sortStr(str2);
+};
 
 
 // EXERCICE 22
