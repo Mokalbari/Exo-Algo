@@ -129,7 +129,14 @@ const sortArray = array => array.sort((a,b) => a > b)
 //   monTableau.push(maStringRotate)
 // }
 // console.log(monTableau) // ["Hello", "elloH", "lloHe", "loHel", "oHell"]
-
+const interpolateString = (str) => {
+  const arr = [];
+  for (let i = 0; i < str.length; i++) {
+    const rotate = str.substring(i) + str.substring(0, i);
+    arr.push(rotate);
+  }
+  return arr
+};
 
 
 //----------------------------------------------------------------------------------------------//
@@ -143,7 +150,7 @@ const sortArray = array => array.sort((a,b) => a > b)
 // const monTableauAddition = monTableau.map((element) => {
 //   return element + 1
 // })
-
+const addOne = arr => arr.map(num => num+=1)
 
 //----------------------------------------------------------------------------------------------//
 
@@ -156,7 +163,7 @@ const sortArray = array => array.sort((a,b) => a > b)
 // const monTableauLongueur = monTableau.map((element) => {
 //   return element.length
 // })
-
+const countLength = arr => arr.map(num => num.length)
 
 //----------------------------------------------------------------------------------------------//
 
@@ -170,7 +177,7 @@ const sortArray = array => array.sort((a,b) => a > b)
 // const monTableauPremiereLettre = monTableau.map((element) => {
 //   return element.charAt(0)
 // })
-
+const getFirstLetter = arr => arr.map(character => character.charAt(0))
 
 
 //----------------------------------------------------------------------------------------------//
@@ -180,7 +187,7 @@ const sortArray = array => array.sort((a,b) => a > b)
 // Crée une fonction qui prend en paramètre un tableau de string et qui doit retourner un tableau avec toutes les dernières lettres de chaque string.
 // Exemple : ["Hello", "World"] => ["o", "d"]
 // Indice regarde l'exercice 13, c'est exactement la même chose sauf qu'il faut récupérer la dernière lettre et non la première.
-
+const getLastLetter = arr => arr.map(character => character.slice(-1))
 
 
 //----------------------------------------------------------------------------------------------//
@@ -190,7 +197,7 @@ const sortArray = array => array.sort((a,b) => a > b)
 // Crée une fonction qui prend en paramètre un tableau de string et qui doit renvoyer tout les string qui ont une longueur de 5 caractères ou plus.
 // Exemple : ["Hello", "World","Test", "Salut", "Yo"] => ["Hello", "World", "Salut"]
 // Pour cette exercice on va utiliser la méthode filter() qui permet de filtrer un tableau, hésitez pas à regarder l'exercice 8 pour voir comment ça fonctionne. Sauf qu'ici on va filtrer en fonction de la longueur de la string. Incice : la méthode length() permet de récupérer la longueur d'une string.
-
+const filterAboveFive = arr => arr.filter(str => str.length >= 5)
 
 
 //----------------------------------------------------------------------------------------------//
@@ -204,7 +211,7 @@ const sortArray = array => array.sort((a,b) => a > b)
 // const somme = monTableau.reduce((accumulateur, element) => {
 //   return accumulateur + element
 // }, 0)
-
+const getTotalFromArray = arr => arr.reduce((a,b) => a + b
 
 
 //----------------------------------------------------------------------------------------------//
@@ -218,7 +225,7 @@ const sortArray = array => array.sort((a,b) => a > b)
 // const monTableau2 = ["Test", "Salut"]
 // const monTableauConcat = monTableau1.concat(monTableau2)
 // console.log(monTableauConcat) // ["Hello", "World", "Test", "Salut"]
-
+const getTotalFromArray = arr => arr.reduce((a,b) => a + b)
 
 
 //----------------------------------------------------------------------------------------------//
@@ -228,7 +235,7 @@ const sortArray = array => array.sort((a,b) => a > b)
 // Crée une fonction qui prend en paramètre un tableau de string et qui doit retourner toutes les string qui ont la lettre "e".
 // Exemple : ["Poulet", "Chat", "Chien", "Cheval"] => ["Poulet", "Chien", "Cheval"]
 // Pour cette exercice on va utiliser la méthode filter() qui permet de filtrer un tableau, hésitez pas à regarder l'exercice 8 pour voir comment ça fonctionne. Sauf qu'ici on va filtrer en fonction de la présence de la lettre "e". Indice : la méthode includes() permet de savoir si une string contient une lettre ou un mot.
-
+const filterLetterE = arr => arr.filter(str => str.includes("e"))
 
 
 //----------------------------------------------------------------------------------------------//
@@ -238,7 +245,7 @@ const sortArray = array => array.sort((a,b) => a > b)
 // Crée une fonction qui prend en paramètre un tableau de nombre et qui doit retourner tout les nombres qui sont pairs par ordre croissant.
 // Exemple : [ 2, 9, 6, 5, 6] => [2, 6, 6]
 // Indice : il y a plusieurs façon de faire, soit avec un for, soit avec la méthode filter() une fois ça fait utilise la méthode sort() qui permet de trier un tableau.
-
+const filterAndSort = arr => arr.filter(num => num % 3).sort((a,b) => a > b)
 
 
 //----------------------------------------------------------------------------------------------//
