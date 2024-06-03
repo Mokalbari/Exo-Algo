@@ -225,7 +225,7 @@ const getTotalFromArray = arr => arr.reduce((a,b) => a + b
 // const monTableau2 = ["Test", "Salut"]
 // const monTableauConcat = monTableau1.concat(monTableau2)
 // console.log(monTableauConcat) // ["Hello", "World", "Test", "Salut"]
-const getTotalFromArray = arr => arr.reduce((a,b) => (a + b)
+const getTotalFromArray = arr => arr.reduce((a,b) => (a + b))
 
 
 //----------------------------------------------------------------------------------------------//
