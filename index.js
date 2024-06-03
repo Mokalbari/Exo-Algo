@@ -279,6 +279,16 @@ const isAnagram = (str1, str2) => {
 // Par exemple :
 // removeDoubleLetters("google") // "gogle"
 // removeDoubleLetters("Hello World!") // "Helo World!"
+const removeDoubles = (str) => {
+  const arr = str.split("");
+  for (let i = 0 ; i < arr.length ; i++) {
+    if (arr[i] === arr[i - 1]) {
+      arr.splice(i - 1, 1)
+      i--
+    }
+  }
+  return arr.join("")
+}
 
 
 
@@ -287,18 +297,32 @@ const isAnagram = (str1, str2) => {
 //Écrivez une fonction qui prend un tableau de 10 entiers (entre 0 et 9) et renvoie une chaîne de caractères sous la forme d'un numéro de téléphone.
 // Exemple :
 // createPhoneNumber([1,2,3,4,5,6,7,8,9,0]) // "(123) 456-7890"
-
+const makeAPhoneNumber = n => {
+  return `(${n[0]}${n[1]}${n[2]}) ${n[3]}${n[4]}${n[5]}-${n[6]}${n[7]}${n[8]}${n[9]}`
+}
 
 
 // EXERCICE 24
 
-//Écrivez une fonction nommée "findMissingLetter" qui prend en paramètre un tableau d'une série de lettres (en tant que chaînes de caractères) et qui renvoie la lettre manquante de la série. Si aucune lettre n'est manquante, la fonction doit renvoyer "undefined".
+//Écrivez une fonction nommée "findMissingLetter" qui prend en paramètre un tableau d'une série de lettres (en tant que chaînes de caractères) et
+//qui renvoie la lettre manquante de la série. Si aucune lettre n'est manquante, la fonction doit renvoyer "undefined".
 // Exemple :
 // findMissingLetter(["a","b","c","d","f"]) // "e"
 // findMissingLetter(["O","Q","R","S"]) // "P"
 // Indice : Oubliez pas de boucler et vous pouvez utiliser la méthode charCodeAt() pour récupérer le code unicode d'un caractère.
 // Indice 2 : Vous pouvez utiliser la méthode fromCharCode() pour récupérer un caractère à partir de son code unicode.  Exemple : String.fromCharCode(65) renvoie "A". Mais attention à refaire la boucle dans l'autre sens pour pouvoir comparer les codes unicode des caractères du tableau avec les codes unicode des caractères manquants.
 // Indice 3 : Il y a plus cas comparer les codes unicode des caractères du tableau avec les codes unicode des caractères manquants pour trouver le caractère manquant avec une condition if. Et retourner le caractère manquant avec un return et la méthode fromCharCode().
+// pas fini
+const arr = ["a", "b", "d", "e"];
+
+const findMissingLetter = arr => {
+  let counter = arr[0].charCodeAt();
+  for (let i = 0; i < arr.length; i++) 
+    if (arr[i].charCodeAt() !== counter) {
+      return String.fromCharCode(counter);
+    }
+    counter++;
+}
 
 
 
