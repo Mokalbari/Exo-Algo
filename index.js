@@ -332,7 +332,7 @@ const findMissingLetter = arr => {
 // Exemple :
 // sortString(["Banana", "Orange", "Apple", "Mango"]) // ["Apple", "Banana", "Mango", "Orange"]
 // sortString(["lait", "beurre", "fromage", "yaourt"]) // ["beurre", "fromage", "lait", "yaourt"]
-
+const sortArray = arr => arr.sort((a,b) => a > b)
 
 
 // EXERCICE 26
@@ -342,7 +342,7 @@ const findMissingLetter = arr => {
 // otherAngle(30, 60) // 90
 // otherAngle(60, 60) // 60
 // Indice : Pour trouver le troisième angle, tu dois soustraire la somme des deux angles donnés à 180 degrés.
-
+const calculateAngle = (a,b) => 180 - a - b;
 
 
 // EXERCICE 27
