@@ -482,8 +482,14 @@ const getSomeFromArrayElements = (arr1, arr2) => {
 
 // EXERCICE 32
 
-// Écris une fonction generatedCharacter qui crée de manière aléatoires des personnages donjon et dragon avec une classe et des noms de personnages. La fonction doit renvoyer un tableau de personnages.
-
+// Écris une fonction generatedCharacter qui crée de manière aléatoires des personnages donjon et dragon
+// avec une classe et des noms de personnages. La fonction doit renvoyer un tableau de personnages.
+const createRandomCharacter = (nameArray, classArray) => {
+  const userName = nameArray[Math.floor(Math.random() * nameArray.length)];
+  const userClass = classArray[Math.floor(Math.random() * classArray.length)];
+  
+  return [userName, userClass]
+}
 
 
 //----------------------------------------------------------------------------------------------//
@@ -494,12 +500,25 @@ const getSomeFromArrayElements = (arr1, arr2) => {
 
 // Exemple du résultat attendu :
 // filterDuplicate([1, 2, 2, 3, 4, 4, 5]) // [1, 2, 3, 4, 5]
+const filterDuplicates = (arr) => {
+  const sortedArray = arr.sort((a, b) => a > b);
 
+  for (let i = 0; i < arr.length; i++) {
+    if (sortedArray[i] === sortedArray[i - 1]) {
+      sortedArray.splice(i - 1, 1);
+
+      i--;
+    }
+  }
+
+  return sortedArray;
+};
 
 
 // EXERCICE 34
 
-// Écrivez une fonction judgeFaces qui prend un tableau de grimaces représentées par des chaînes de caractères Emoji en entrée et renvoie un objet avec les scores pour chaque type de grimace. Vous devez utiliser la méthode map et la méthode reduce
+// Écrivez une fonction judgeFaces qui prend un tableau de grimaces représentées par des chaînes de caractères Emoji en entrée
+// et renvoie un objet avec les scores pour chaque type de grimace. Vous devez utiliser la méthode map et la méthode reduce
 
 // Exemple du résultat attendu :
 // judgeFaces(["😀", "😂", "😄", "😂", "😁", "😂", "😄", "😀"]) // { '😀': 10, '😁': 4, '😂': 9, '😃': 0, '😄': 2 }
@@ -509,6 +528,7 @@ const getSomeFromArrayElements = (arr1, arr2) => {
 
 // Ecrivez une fonction qui prend en paramètre un tableau de lettre et qui doit retourner un mot formé par ces lettres.
 // Exemple : ["H", "e", "l", "l", "o"] => "Hello"
+const makeAWord = arr => arr.join("")
 
 // EXERCICE 36
 
