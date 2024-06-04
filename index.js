@@ -313,16 +313,16 @@ const makeAPhoneNumber = n => {
 // Indice 2 : Vous pouvez utiliser la méthode fromCharCode() pour récupérer un caractère à partir de son code unicode.  Exemple : String.fromCharCode(65) renvoie "A". Mais attention à refaire la boucle dans l'autre sens pour pouvoir comparer les codes unicode des caractères du tableau avec les codes unicode des caractères manquants.
 // Indice 3 : Il y a plus cas comparer les codes unicode des caractères du tableau avec les codes unicode des caractères manquants pour trouver le caractère manquant avec une condition if. Et retourner le caractère manquant avec un return et la méthode fromCharCode().
 // pas fini
-const arr = ["a", "b", "d", "e"];
-
 const findMissingLetter = arr => {
   let counter = arr[0].charCodeAt();
-  for (let i = 0; i < arr.length; i++) 
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i].charCodeAt() !== counter) {
       return String.fromCharCode(counter);
     }
     counter++;
-}
+  }
+  return null;
+};
 
 
 
@@ -352,21 +352,50 @@ const calculateAngle = (a,b) => 180 - a - b;
 // isLeapYear(2020) // true
 // isLeapYear(2021) // false
 // Indice : Pour savoir ça tu peux utiliser le modulo. Si une année est divisible par 4 et que le reste de la division est égal à 0, alors c'est une année bissextile.
-
+const isLeapYear = num => {
+	let result = null;
+	if (num % 4 === 0 && num % 100 !== 0) {
+		result = true;
+	} else if (num % 400 === 0) {
+		result = true;
+	} else {
+		result = false;
+	}
+	return result;
+};
 
 
 // EXERCICE 28
 
-// Voici un example de tableau d'animaux. Écris une fonction qui à partir d'un tableau similaire reçu en paramètre renvoie un nouveau tableau qui lui même contient deux sous-tableaux. Le premier sous-tableau doit contenir les animaux domestiques et le second les animaux sauvages. Les animaux domestiques doivent être triés par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé.
-
-
+// Voici un example de tableau d'animaux.
+// Écris une fonction qui à partir d'un tableau similaire reçu en paramètre renvoie un nouveau tableau
+// qui lui même contient deux sous-tableaux.
+// Le premier sous-tableau doit contenir les animaux domestiques et le second les animaux sauvages.
+// Les animaux domestiques doivent être triés par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé.
 
 // Exemple :
 // sortAnimals(animals) // [["Cat", "Dog", "Donkey", "Pigeon", "Turtle"], ["Eagle", "Monkey", "Panda", "Crocodile"]]
-// Indice : Oubliez pas que tu peux créer des variables qui contiennent des tableaux vides et que tu peux ajouter des éléments à un tableau avec la méthode push(). Mais vu que tu dois analyser le tableau d'animaux pour le trier, tu dois utiliser une boucle et faire des conditions if pour savoir si l'animal est domestique ou sauvage. Et tu dois trier les animaux domestiques par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé. Pour trier un tableau par ordre alphabétique tu peux utiliser la méthode sort(). Pour trier un tableau par ordre alphabétique inversé tu peux utiliser la méthode reverse().
-
-
-
+// Indice : Oubliez pas que tu peux créer des variables qui contiennent des tableaux vides et que
+// tu peux ajouter des éléments à un tableau avec la méthode push().
+// Mais vu que tu dois analyser le tableau d'animaux pour le trier,
+// tu dois utiliser une boucle et faire des conditions if pour savoir si l'animal est domestique ou sauvage.
+// Et tu dois trier les animaux domestiques par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé.
+// Pour trier un tableau par ordre alphabétique tu peux utiliser la méthode sort().
+// Pour trier un tableau par ordre alphabétique inversé tu peux utiliser la méthode reverse().
+const sortDomesticFromWild = arr => {
+  let domestic = []
+  let wild = []
+  for (let i = 0 ; i < arr.length ; i++) {
+    if (listOfDomesticAnimals.includes(arr[i].toLowerCase())) {
+      domestic.push(arr[i])
+    } else {
+      wild.push(arr[i])
+    }
+  }
+  domestic.sort((a,b) => a > b);
+  wild.sort((a,b) => b > a);
+  return [domestic, wild]
+}
 
 // EXERCICE 29
 
@@ -385,7 +414,15 @@ const calculateAngle = (a,b) => 180 - a - b;
 // ]
 
 // Indice : Tu dois utiliser deux boucles imbriquées pour créer les sous-tableaux. La première boucle doit parcourir les colonnes et la seconde boucle doit parcourir les sièges de chaque colonne.
-
+const getSeats = () => {
+  let arr = [];
+  for (let i = 1 ; i < 27 ; i++) {
+    for (let j = 1 ; j < 101 ; j++) {
+      arr.push([`${i} - ${j}`])
+    }
+  }
+  return arr
+}
 
 
 // EXERCICE 30
@@ -403,14 +440,30 @@ Pour exemple, si ta fonction recevait le tableau ci-dessous en paramètre, tu de
 ["1:0", "2:0", "3:0", "4:4", "2:2", "3:3", "1:4", "2:3", "2:4", "3:3"]
 */
 //Indice : Tu dois utiliser une boucle for pour parcourir le tableau et une condition if pour savoir si notre équipe a gagné, perdu ou fait match nul. Et tu dois ajouter les points de chaque match à une variable score qui doit être initialisée à 0. Et tu dois retourner la variable score à la fin de la fonction.
-
+const getPoints = (arr) => {
+  let firstTeamCounter = 0;
+  let secondTeamCounter = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let secondArr = arr[i].split("");
+    if (secondArr[0] > secondArr[2]) {
+      firstTeamCounter += 3;
+    } else if (secondArr[0] === secondArr[2]) {
+      firstTeamCounter++;
+      secondTeamCounter++;
+    } else {
+      secondTeamCounter += 3;
+    }
+  }
+  return firstTeamCounter
+};
 
 
 // EXERCICE 31
 
 /*
 Écris une fonction avec deux paramètres. Ces paramètres sont des tableaux contenant des nombres **stockés sous forme de chaînes de caractères**.
-Ta fonction doit renvoyer **un** tableau, où chaque élément est la somme des éléments des deux arguments correspondants (c'est-à-dire : le premier élément du tableau résultat est égal au premier élément du premier paramètre plus le premier élément du deuxième paramètre) .
+Ta fonction doit renvoyer **un** tableau, où chaque élément est la somme des éléments des deux arguments correspondants
+(cad: le premier élément du tableau résultat est égal au premier élément du premier paramètre plus le premier élément du deuxième paramètre) .
 Remarque : Si un élément est vide, il doit compter pour 0.
 Ex: 
 sumArr( ["1", "2", "3"], ["2", "4", "1"] ) should return ["3", "6", "4"]
@@ -418,7 +471,13 @@ sumArr( ["2", "7", "3"], ["2", "4", "9"] ) should return ["4", "11", "12"]
 sumArr( ["2", "7", "3", "8", "2"], ["2", "4", "9"] ) should return ["4", "11", "12", "8", "2"]
 sumArr( ["2", "5", "3"], ["2", "4", "9", "5", "5"] ) should return ["4", "9", "12", "5", "5"]
 */
-
+const getSomeFromArrayElements = (arr1, arr2) => {
+  let result = [];
+  result.push(+arr1[0] + +arr2[0])
+  result.push(+arr1[1] + +arr2[1])
+  result.push(+arr1[2] + +arr2[2])
+  return result
+}
 
 
 // EXERCICE 32
