@@ -532,9 +532,22 @@ const makeAWord = arr => arr.join("")
 
 // EXERCICE 36
 
-//  // Écrivez une fonction cartes qui génère un jeu de 52 cartes à jouer. Chaque carte est représentée par une chaîne, avec la valeur de la carte suivie de sa couleur. Elles sont représentées par les caractères suivants : ♠, ♥, ♦, ♣. Les valeurs des cartes sont représentées par les chaînes suivantes : 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A. La fonction doit renvoyer un tableau de chaînes, avec chaque chaîne représentant une seule carte.
+//  // Écrivez une fonction cartes qui génère un jeu de 52 cartes à jouer. Chaque carte est représentée par une chaîne, avec la valeur de la carte suivie de sa couleur. Elles sont représentées par les caractères suivants : ♠, ♥, ♦, ♣.
+// Les valeurs des cartes sont représentées par les chaînes suivantes : 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A.
+// La fonction doit renvoyer un tableau de chaînes, avec chaque chaîne représentant une seule carte.
 
 // Exemple :
 
 // [  "2♠", "3♠", "4♠", "5♠", "6♠", "7♠", "8♠", "9♠", "10♠", "J♠", "Q♠", "K♠", "A♠",  "2♥", "3♥", "4♥", "5♥", "6♥", "7♥", "8♥", "9♥", "10♥", "J♥", "Q♥", "K♥", "A♥",  "2♦", "3♦", "4♦", "5♦", "6♦", "7♦", "8♦", "9♦", "10♦", "J♦", "Q♦", "K♦", "A♦",  "2♣", "3♣", "4♣", "5♣", "6♣", "7♣", "8♣", "9♣", "10♣", "J♣", "Q♣", "K♣", "A♣"]
-
+const makeACardGame = () => {
+  let colors = ["♠", "♥", "♦", "♣"]
+  let numbers = [2,3,4,5,6,7,8,9,10,"J","D","K","A"]
+  let result = []
+  
+  for (let i = 0 ; i < colors.length ; i++) {
+    for (let j = 0 ; j < numbers.length ; j++) {
+      result.push(`${numbers[j]}${colors[i]}`)
+    }
+  }
+  return result
+}
