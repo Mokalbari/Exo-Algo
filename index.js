@@ -98,9 +98,7 @@ const getLowestFromArray = array => Math.min(...array)
 // })
 const removeVowelsFromString = (str) => {
   const vowels = ["a", "e", "i", "o", "u", "y"];
-  const array = str.split("");
-  const filter = array.filter(x => !vowels.includes(x));
-  return filter.join("")
+  return str.split("").filter(x => !vowels.includes(x)).join("");
 };
 
 //----------------------------------------------------------------------------------------------//
